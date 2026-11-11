@@ -154,6 +154,15 @@
   .lightbox-prev { left: 20px; }
   .lightbox-next { right: 20px; }
 
+  .gig { padding: 90px 40px; background: linear-gradient(135deg, #0d1f3c, #0a1a0a); text-align: center; }
+  .gig-wrap { max-width: 1000px; margin: 0 auto; display: flex; gap: 40px; align-items: center; justify-content: center; flex-wrap: wrap; }
+  .gig-flyer { flex: 1 1 460px; max-width: 560px; }
+  .gig-flyer img { width: 100%; height: auto; border-radius: 16px; box-shadow: 0 12px 50px rgba(42,125,225,0.45); cursor: zoom-in; display: block; }
+  .gig-info { flex: 1 1 320px; max-width: 400px; text-align: left; }
+  .gig-info h3 { font-size: 24px; font-weight: 800; margin-bottom: 14px; }
+  .gig-info ul { list-style: none; padding: 0; margin: 0 0 24px; color: #c8d4e0; font-size: 16px; line-height: 2; }
+  .gig-info .btn-primary { display: inline-block; }
+  @media (max-width: 700px) { .gig { padding: 60px 20px; } .gig-info { text-align: center; } }
   .why { padding: 90px 40px; background: linear-gradient(135deg, #0d1f3c, #0a1a0a); text-align: center; }
   .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
   .feature-card { padding: 35px 20px; }
@@ -233,6 +242,7 @@ src="https://www.facebook.com/tr?id=2842509399447021&ev=PageView&noscript=1"
   <img src="https://media.base44.com/images/public/whatsapp/69d95b326866e0683518658c/your_agent/69d95b326866e0683518658d/9a8c8a2d8_whatsapp_image_1487243322304231.jpg" alt="Dtour LLC">
   <ul>
     <li><a href="#fleet">Our Fleet</a></li>
+    <li><a href="#gig-rental">Gig Rental</a></li>
     <li><a href="#why">Why Us</a></li>
     <li><a href="#how">How It Works</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -490,6 +500,28 @@ src="https://www.facebook.com/tr?id=2842509399447021&ev=PageView&noscript=1"
 
 </section>
 
+<!-- GIG RENTAL PROGRAM -->
+<section class="gig" id="gig-rental">
+  <h2 class="section-title">Gig Rental <span>Program</span></h2>
+  <p class="section-sub">Drive for Uber, Lyft, DoorDash and more. Weekly rentals, no long-term commitment.</p>
+  <div class="gig-wrap">
+    <div class="gig-flyer">
+      <img src="images/dtour-gig-rental-flyer.jpg" alt="Dtour LLC Gig Rental Program: Toyota RAV4 $325 per week, Mercedes-Benz GLC 300 $425 per week, $250 enrollment fee plus $250 refundable security deposit" onclick="openLightbox(this)" loading="lazy">
+    </div>
+    <div class="gig-info">
+      <h3>Drive. Earn. Thrive.</h3>
+      <ul>
+        <li>🚙 Toyota RAV4: $325 per week</li>
+        <li>🚘 Mercedes-Benz GLC 300: $425 per week</li>
+        <li>✅ Late-model, very low miles</li>
+        <li>📅 Flexible weekly rental</li>
+        <li>💵 $250 enrollment fee + $250 refundable deposit</li>
+      </ul>
+      <a href="tel:9549072089" class="btn-primary">📞 Call or Text (954) 907-2089</a>
+    </div>
+  </div>
+</section>
+
 <!-- WHY US -->
 <section class="why" id="why">
   <h2 class="section-title">Why Choose <span>Dtour?</span></h2>
@@ -569,7 +601,7 @@ src="https://www.facebook.com/tr?id=2842509399447021&ev=PageView&noscript=1"
 
   let currentImgs=[], currentIdx=0;
   function openLightbox(img) {
-    const grid = img.closest('.photo-grid');
+    const grid = img.closest('.photo-grid') || img.parentElement;
     currentImgs = Array.from(grid.querySelectorAll('img'));
     currentIdx = currentImgs.indexOf(img);
     document.getElementById('lightbox-img').src = img.src;
